@@ -4,8 +4,24 @@
         "project": "./tsconfig.json"
     },
     "rules": {
-        "indent": ["error", 4],
+        "indent": "off",
+        "@typescript-eslint/indent": ["error", 4],
+        "semi": "off",
+        "@typescript-eslint/semi": [2, "always"],
         "@typescript-eslint/consistent-type-definitions": "off",
-        "@typescirpt-eslit/strict-boolean-expressions": "off"
+        "@typescirpt-eslit/strict-boolean-expressions": "off",
+        "space-before-function-paren": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
+        "eol-last": ["error", "always"],
+        "@typescript-eslint/member-delimiter-style": ["error", {
+            "multiline": {
+              "delimiter": "semi",
+              "requireLast": true
+            },
+            "singleline": {
+              "delimiter": "semi",
+              "requireLast": true
+            }
+        }]
     }
 }
