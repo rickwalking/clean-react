@@ -20,7 +20,7 @@ const makeSystemUnderTest = (url: string = 'any_url'): SutTypes => {
     };
 };
 
-describe('RemoveAuthentication', () => {
+describe('RemoveAuthentication', (): void => {
     test('Should call HttpPostClient with correct URL', async(): Promise<void> => {
         const url: string = 'other_url';
         const {
