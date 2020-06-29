@@ -1,10 +1,17 @@
-import { RemoteAuthentication } from './remote-authentication';
+import {
+    RemoteAuthentication
+} from '@/data/usecases/authentication/remote-authentication';
 
-import { HttpPostClientSpy } from '../../test/mock-http-client';
+import { HttpPostClientSpy } from '@/data/test/mock-http-client';
+
+import {
+    mockAuthentication
+} from '@/domain/test/mock-authentication';
+import {
+    AuthenticationParams
+} from '@/domain/usecases/authentication';
 
 import faker from 'faker';
-import { mockAuthentication } from '../../../domain/test/mock-authentication';
-import { AuthenticationParams } from '../../../domain/usecases/authentication';
 
 type SutTypes = {
     systemUnderTest: RemoteAuthentication;
