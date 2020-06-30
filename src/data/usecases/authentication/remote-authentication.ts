@@ -6,11 +6,12 @@ import {
 } from '@/domain/usecases/authentication';
 import { InvalidCredentialsError } from '@/domain/errors/invalid-credentials-error';
 import { UnexpectedError } from '@/domain/errors/unexpected-error';
+import { AccountModel } from '@/domain/models/account-model';
 
 export class RemoteAuthentication {
     constructor(
         private readonly url: string,
-        private readonly httpPostClient: HttpClientPost
+        private readonly httpPostClient: HttpClientPost<AuthenticationParams, AccountModel>
     ) {
         //
     }

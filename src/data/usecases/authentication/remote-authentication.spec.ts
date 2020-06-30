@@ -14,6 +14,7 @@ import {
     InvalidCredentialsError
 } from '@/domain/errors/invalid-credentials-error';
 import { UnexpectedError } from '@/domain/errors/unexpected-error';
+import { AccountModel } from '@/domain/models/account-model';
 
 import { HttpStatusCode } from '@/data/protocols/http/http-response';
 
@@ -21,11 +22,12 @@ import faker from 'faker';
 
 type SutTypes = {
     systemUnderTest: RemoteAuthentication;
-    httpPostClientSpy: HttpPostClientSpy;
+    httpPostClientSpy: HttpPostClientSpy<AuthenticationParams, AccountModel>;
 };
 
 const makeSystemUnderTest = (url: string = faker.internet.url()): SutTypes => {
-    const httpPostClientSpy: HttpPostClientSpy = new HttpPostClientSpy();
+    const httpPostClientSpy: HttpPostClientSpy<AuthenticationParams, AccountModel> =
+        new HttpPostClientSpy();
     const systemUnderTest: RemoteAuthentication = new RemoteAuthentication(
         url,
         httpPostClientSpy
