@@ -10,6 +10,11 @@ import {
 import {
     AuthenticationParams
 } from '@/domain/usecases/authentication';
+import {
+    InvalidCredentialsError
+} from '@/domain/errors/invalid-credentials-error';
+
+import { HttpStatusCode } from '@/data/protocols/http/http-response';
 
 import faker from 'faker';
 
@@ -50,5 +55,18 @@ describe('RemoveAuthentication', (): void => {
         const authenticationParams: AuthenticationParams = mockAuthentication();
         await systemUnderTest.auth(authenticationParams);
         expect(httpPostClientSpy.body).toEqual(authenticationParams);
+    });
+
+    test('should throw InvalidCredentialsError if HttpPostClient return 401', async() => {
+        const {
+            systemUnderTest,
+            httpPostClientSpy
+        } = makeSystemUnderTest();
+        httpPostClientSpy.response = {
+            statusCode: HttpStatusCode.unathorized
+        };
+
+        const promise = systemUnderTest.auth(mockAuthentication());
+        await expect(promise).rejects.toThrow(new InvalidCredentialsError());
     });
 });
