@@ -68,7 +68,7 @@ describe('RemoveAuthentication', (): void => {
             httpPostClientSpy
         } = makeSystemUnderTest();
         httpPostClientSpy.response = {
-            statusCode: HttpStatusCode.unathorized
+            statusCode: HttpStatusCode.unauthorized
         };
 
         const promise = systemUnderTest.auth(mockAuthentication());
