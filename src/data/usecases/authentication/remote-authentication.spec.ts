@@ -5,8 +5,8 @@ import {
 import { HttpPostClientSpy } from '@/data/test/mock-http-client';
 
 import {
-    mockAuthentication
-} from '@/domain/test/mock-authentication';
+    mockAuthentication, mockAccountModel
+} from '@/domain/test/mock-account';
 import {
     AuthenticationParams
 } from '@/domain/usecases/authentication';
@@ -110,5 +110,21 @@ describe('RemoveAuthentication', (): void => {
 
         const promise = systemUnderTest.auth(mockAuthentication());
         await expect(promise).rejects.toThrow(new UnexpectedError());
+    });
+
+    test('should return an AccountModel if HttpClient returns 200', async() => {
+        const {
+            systemUnderTest,
+            httpPostClientSpy
+        } = makeSystemUnderTest();
+        const httpResult = mockAccountModel();
+
+        httpPostClientSpy.response = {
+            statusCode: HttpStatusCode.ok,
+            body: httpResult
+        };
+
+        const account = await systemUnderTest.auth(mockAuthentication());
+        expect(account).toEqual(httpResult);
     });
 });
