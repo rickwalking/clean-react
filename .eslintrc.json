@@ -1,17 +1,17 @@
 {
     "extends": [
-		"standard-with-typescript",
-		"plugin:react/recommended"
+        "standard-with-typescript",
+        "plugin:react/recommended"
     ],
     "plugins": ["react"],
     "parserOptions": {
         "project": "./tsconfig.json"
-	},
-	"settings": {
-		"react": {
-			"version": "detect"
-		}
-	},
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
     "rules": {
         "indent": "off",
         "@typescript-eslint/indent": ["error", 4],
@@ -33,6 +33,6 @@
             }
         }],
         "react/jsx-uses-react": "error",
-        "react/jsx-uses-var": "error"
+        "react/jsx-uses-var": "off"
     }
 }
