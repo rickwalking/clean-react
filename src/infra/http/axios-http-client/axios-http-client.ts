@@ -1,4 +1,8 @@
-import { HttpPostParams, HttpResponse, HttpClientPost } from '@/data/protocols/http';
+import {
+    HttpPostParams,
+    HttpResponse,
+    HttpClientPost
+} from '@/data/protocols/http';
 
 import axios from 'axios';
 
