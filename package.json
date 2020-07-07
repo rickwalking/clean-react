@@ -14,10 +14,12 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@types/react-router-dom": "^5.1.5",
         "axios": "^0.19.2",
         "git-commit-msg-linter": "^2.4.4",
         "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react-dom": "^16.13.1",
+        "react-router-dom": "^5.2.0"
     },
     "devDependencies": {
         "@types/axios": "^0.14.0",

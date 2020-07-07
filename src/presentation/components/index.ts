@@ -16,3 +16,6 @@ export {
 export {
     default as Logo
 } from '@/presentation/components/logo/logo';
+export {
+    default as Router
+} from '@/presentation/components/router/router';
