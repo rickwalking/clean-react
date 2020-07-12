@@ -9,7 +9,7 @@ import {
 
 import Styles from './login-styles.scss';
 
-const Login: React.FC = () => {
+const Login: React.FC = (): JSX.Element => {
     return (
         <div className={Styles.login}>
             <LoginHeader />

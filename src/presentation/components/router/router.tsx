@@ -8,8 +8,6 @@ import {
 
 import { Login } from '@/presentation/pages';
 
-import '@/presentation/styles/global.scss';
-
 const Router: React.FC = (): JSX.Element => {
     return (
         <BrowserRouter>
