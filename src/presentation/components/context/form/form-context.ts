@@ -2,14 +2,16 @@ import { createContext } from 'react';
 
 type FormContextType = {
     isLoading: boolean;
-    main: string;
-    emailError: string;
-    passwordError: string;
+    mainError: string;
+    emailError?: string;
+    passwordError?: string;
+    setState: (...args: any[]) => void;
 };
 
 export default createContext<FormContextType>({
     isLoading: false,
-    main: '',
+    mainError: '',
     emailError: '',
-    passwordError: ''
+    passwordError: '',
+    setState: (...args: any[]) => null
 });

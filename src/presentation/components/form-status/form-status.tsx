@@ -7,16 +7,16 @@ import Styles from './form-status.scss';
 import Context from '@/presentation/components/context/form/form-context';
 
 const FormStatus: React.FC = (): JSX.Element => {
-    const { isLoading, main } = useContext(Context);
+    const { isLoading, mainError } = useContext(Context);
 
     return (
         <div data-testid='error-wrap' className={Styles.errorWrap}>
             {isLoading ? (
                 <Spinner className={Styles.spinner} />
             ) : null}
-            {main.length > 0 ? (
+            {mainError.length > 0 ? (
                 <span className={Styles.error}>
-                    {main}
+                    {mainError}
                 </span>) : null
             }
         </div>
