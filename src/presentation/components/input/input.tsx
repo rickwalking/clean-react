@@ -25,11 +25,13 @@ const Input: React.FC<Props> = (props: Props): JSX.Element => {
     };
 
     const getStatus = (): string => {
-        return '🔴';
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+        return error ? '🔴' : '🔵';
     };
 
     const getTitle = (): any => {
-        return error;
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+        return error || 'Tudo certo!';
     };
 
     return (
