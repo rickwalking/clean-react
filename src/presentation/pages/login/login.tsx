@@ -43,6 +43,17 @@ const Login: React.FC<Props> = ({ validation }: Props): JSX.Element => {
         });
     }, [state.email, state.password]);
 
+    const canDisableButton = (): boolean => {
+        if (state.passwordError === undefined ||
+            state.emailError === undefined
+        ) {
+            return true;
+        }
+
+        return state.passwordError.length > 0 ||
+            state.emailError.length > 0;
+    };
+
     return (
         <div className={Styles.login}>
             <LoginHeader />
@@ -51,7 +62,7 @@ const Login: React.FC<Props> = ({ validation }: Props): JSX.Element => {
                     <h2>Login</h2>
                     <Input type='email' name='email' placeholder='Digite seu email' />
                     <Input type='password' name='password' placeholder='Senha' />
-                    <button data-testid='submit' disabled={true} className={Styles.submit} type='submit'>Entrar</button>
+                    <button data-testid='submit' disabled={canDisableButton()} className={Styles.submit} type='submit'>Entrar</button>
                     <span className={Styles.link}>Criar conta</span>
                     <FormStatus />
                 </form>
