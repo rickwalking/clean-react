@@ -9,31 +9,12 @@ import {
 
 import Login from '@/presentation/pages/login/login';
 
-import { ValidationStub } from '@/presentation/test';
-
 import {
-    Authentication,
-    AuthenticationParams
-} from '@/domain/usecases';
-import { AccountModel } from '@/domain/models';
-import { mockAccountModel } from '@/domain/test';
+    ValidationStub,
+    AuthenticationSpy
+} from '@/presentation/test';
 
 import faker from 'faker';
-
-class AuthenticationSpy implements Authentication {
-    account = mockAccountModel();
-    params: AuthenticationParams = {
-        email: '',
-        password: ''
-    };
-
-    async auth(
-        params: AuthenticationParams
-    ): Promise<AccountModel | undefined> {
-        this.params = params;
-        return await Promise.resolve(this.account);
-    }
-}
 
 type SutTypes = {
     sut: RenderResult;
