@@ -9,10 +9,13 @@ export class AuthenticationSpy implements Authentication {
         password: ''
     };
 
+    callsCount: number = 0;
+
     async auth(
         params: AuthenticationParams
     ): Promise<AccountModel | undefined> {
         this.params = params;
+        this.callsCount++;
         return await Promise.resolve(this.account);
     }
 }

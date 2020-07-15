@@ -154,4 +154,11 @@ describe('Login component', (): void => {
             password
         });
     });
+
+    test('Should call Authentication only once', (): void => {
+        const { sut, authenticationSpy } = makeSut();
+        simulateValidSubmit(sut);
+        simulateValidSubmit(sut);
+        expect(authenticationSpy.callsCount).toBe(1);
+    });
 });
