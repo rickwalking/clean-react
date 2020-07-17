@@ -15,7 +15,7 @@ const FormStatus: React.FC = (): JSX.Element => {
                 <Spinner className={Styles.spinner} />
             ) : null}
             {mainError.length > 0 ? (
-                <span className={Styles.error}>
+                <span data-testid='main-error' className={Styles.error}>
                     {mainError}
                 </span>) : null
             }
