@@ -7,6 +7,7 @@ import {
     cleanup,
     waitFor
 } from '@testing-library/react';
+import 'jest-localstorage-mock';
 
 import Login from '@/presentation/pages/login/login';
 
@@ -91,6 +92,9 @@ const simulateStatusForField = (
 
 describe('Login component', (): void => {
     afterEach(cleanup);
+    beforeEach(() => {
+        localStorage.clear();
+    });
 
     test('Should start with initial state', (): void => {
         const validationError = faker.random.words();
@@ -184,5 +188,15 @@ describe('Login component', (): void => {
         const mainError = sut.getByTestId('main-error');
         expect(mainError.textContent).toBe(error.message);
         expect(errorWrap.childElementCount).toBe(1);
+    });
+
+    test('Should add accessToken to localstorage on success', async(): Promise<void> => {
+        const { sut, authenticationSpy } = makeSut();
+        simulateValidSubmit(sut);
+        await waitFor(() => sut.getByTestId('form'));
+        expect(localStorage.setItem).toHaveBeenCalledWith(
+            'accessToken',
+            authenticationSpy.account.accessToken
+        );
     });
 });
