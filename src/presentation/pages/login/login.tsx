@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
     LoginHeader,
@@ -107,7 +108,7 @@ const Login: React.FC<Props> = ({
                     <Input type='email' name='email' placeholder='Digite seu email' />
                     <Input type='password' name='password' placeholder='Senha' />
                     <button data-testid='submit' disabled={canDisableButton()} className={Styles.submit} type='submit'>Entrar</button>
-                    <span className={Styles.link}>Criar conta</span>
+                    <Link to='/signup' data-testid='signup' className={Styles.link}>Criar conta</Link>
                     <FormStatus />
                 </form>
             </Context.Provider>
