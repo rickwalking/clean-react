@@ -9,7 +9,7 @@ export class RequiredFieldValidation implements FieldValidation {
         //
     }
 
-    validate(fieldValue: string): Error {
-        return new RequiredFieldError();
+    validate(fieldValue: string): Error | null {
+        return fieldValue.length > 0 ? null : new RequiredFieldError();
     }
 }
