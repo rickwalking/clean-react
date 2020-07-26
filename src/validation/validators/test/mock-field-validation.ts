@@ -1,6 +1,6 @@
 import { FieldValidation } from '@/validation/protocols/field-validation';
 
-export class FieldfieldValidationSpy implements FieldValidation {
+export class FieldValidationSpy implements FieldValidation {
     error: Error | null = null;
 
     constructor(
