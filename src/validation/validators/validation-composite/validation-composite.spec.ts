@@ -2,7 +2,7 @@ import { ValidationComposite } from '@/validation/validators/validation-composit
 
 import {
     FieldValidationSpy
-} from '@/validation/validators/test/mock-field-validation';
+} from '@/validation/test';
 
 import faker from 'faker';
 
