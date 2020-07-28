@@ -12,7 +12,7 @@ import {
 } from '@testing-library/react';
 import 'jest-localstorage-mock';
 
-import Login from '@/presentation/pages/login/login';
+import { Login } from '@/presentation/pages';
 
 import {
     ValidationStub,
