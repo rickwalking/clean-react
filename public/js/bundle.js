@@ -1237,7 +1237,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makeApiUrl\", function() { return makeApiUrl; });\nconst makeApiUrl = (path) => {\n    return `http://fordevs.herokuapp.com/api${path}`;\n};\n\n\n//# sourceURL=webpack:///./src/main/factories/http/axios/api-url-factory.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makeApiUrl\", function() { return makeApiUrl; });\nconst makeApiUrl = (path) => {\n    return `process.env.API_URL${path}`;\n};\n\n\n//# sourceURL=webpack:///./src/main/factories/http/axios/api-url-factory.ts?");
 
 /***/ }),
 
