@@ -13,7 +13,7 @@ import Styles from './login-styles.scss';
 import Context from '@/presentation/components/context/form/form-context';
 import { Validation } from '@/presentation/protocols/validation';
 
-import { Authentication } from '@/domain/usecases';
+import { Authentication, SaveAccessToken } from '@/domain/usecases';
 
 type StateProps = {
     isLoading: boolean;
@@ -27,11 +27,13 @@ type StateProps = {
 type Props = {
     validation: Validation;
     authentication: Authentication;
+    saveAccessToken: SaveAccessToken;
 };
 
 const Login: React.FC<Props> = ({
     validation,
-    authentication
+    authentication,
+    saveAccessToken
 }: Props): JSX.Element => {
     const history = useHistory();
     const [state, setState] = useState<StateProps>({
@@ -90,7 +92,7 @@ const Login: React.FC<Props> = ({
                 return;
             }
 
-            localStorage.setItem('accessToken', account?.accessToken);
+            await saveAccessToken.save(account?.accessToken);
             history.replace('/');
         } catch (error) {
             setState({
