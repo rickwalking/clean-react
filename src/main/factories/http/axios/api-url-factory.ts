@@ -1,3 +1,4 @@
 export const makeApiUrl = (path: string): string => {
-    return `process.env.API_URL${path}`;
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    return `${process.env.API_URL}${path}`;
 };
