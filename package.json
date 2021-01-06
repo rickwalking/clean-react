@@ -17,7 +17,7 @@
     "license": "ISC",
     "dependencies": {
         "@types/react-router-dom": "^5.1.5",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "git-commit-msg-linter": "^2.4.4",
         "npm-check": "^5.9.2",
         "react": "^16.13.1",
